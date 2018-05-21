@@ -8,3 +8,7 @@ suite "#newValidator()":
         check(validator.hasKey("email"))
     test "Validates email address":
         check(validator["email"]("hello@world.com"))
+
+suite "validateEmail()":
+    test "Validates email address":
+        check(validateEmail("hello@world.com"))

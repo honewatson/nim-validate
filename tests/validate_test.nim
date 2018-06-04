@@ -2,13 +2,10 @@ import unittest
 import tables
 import ../src/validate
 
-suite "#newValidator()":
-    var validator: TableValidator = newTableValidator()
-    test "Create validator":
-        check(validator.hasKey("email"))
-    test "Validates email address":
-        check(validator["email"]("hello@world.com"))
 
-suite "validateEmail()":
+suite "validate()":
     test "Validates email address":
-        check(validateEmail("hello@world.com"))
+        check(validate("hello@world.com".Email))
+        check(validate("hello@world".Email) == false)
+    test "Validates Domain":
+        check(validate("www.kangaroo.com.au".Domain))
